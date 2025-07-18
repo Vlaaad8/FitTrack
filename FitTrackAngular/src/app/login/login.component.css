@@ -1,0 +1,6 @@
+input{
+    display:block
+}
+.isInvalid{
+    border: 2px solid red;
+}

@@ -1,0 +1,10 @@
+<form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+  <label for="username">Username</label>
+  <input type="text" name="username" formControlName="username" [ngClass]="loginForm.touched && (loginForm.controls['username'].hasError('minlength') || loginForm.controls['username'].hasError('maxlength')) ? 'isInvalid' : ''">
+  <div *ngIf="loginForm.touched && (loginForm.controls['username'].hasError('minlength') || loginForm.controls['username'].hasError('maxlength'))">User needs to have between 3-10 characters</div>
+  <label for="password">Password</label>
+  <input type="password" name="password" formControlName="password" [ngClass]="loginForm.touched && (loginForm.controls['password'].hasError('minlength') || loginForm.controls['password'].hasError('maxlength')) ? 'isInvalid' : ''">
+  <div *ngIf="loginForm.touched && (loginForm.controls['password'].hasError('minlength') || loginForm.controls['password'].hasError('maxlength'))">Password needs to have between 3-10 characters</div>
+  <button type="submit">Login</button>
+  <button (click)="handleRegister()">Register</button>
+</form>

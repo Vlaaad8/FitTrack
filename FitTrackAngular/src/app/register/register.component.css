@@ -1,0 +1,12 @@
+.dataCapsule{
+    display: block;
+    
+}
+
+.dataCapsule >label:first-of-type{
+    display:block
+}
+
+.isInvalid{
+    border: 2px solid red
+}
