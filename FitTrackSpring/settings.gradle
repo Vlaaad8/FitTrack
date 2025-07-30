@@ -1,0 +1,5 @@
+rootProject.name = 'FitTrackSpring'
+include 'Model'
+include 'Persistence'
+include 'RestServices'
+
