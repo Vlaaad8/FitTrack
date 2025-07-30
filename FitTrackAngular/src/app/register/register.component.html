@@ -8,7 +8,7 @@
   <div class="dataCapsule">
   <label>Password</label>
   <input type="password" name="password" formControlName="password" [ngClass]="registerForm.touched && (registerForm.controls['password'].hasError('minlength') || registerForm.controls['password'].hasError('maxlength')) ? 'isInvalid' : ''"> 
-  <div *ngIf="registerForm.touched && (registerForm.controls['password'].hasError('minlength') || registerForm.controls['password'].hasError('maxlength'))">Password needs to have between 3-10 characters</div>
+  <div *ngIf="registerForm.touched && (registerForm.controls['password'].hasError('minlength') || registerForm.controls['password'].hasError('maxlength') || registerForm.controls['password'].hasError('invalidPassword'))">Password needs to have between 3-10 characters, and must cotains one letter , one number and one special character</div>
   </div>
 
   <div class="dataCapsule">
@@ -20,13 +20,13 @@
   <div class="dataCapsule">
   <label>First name</label>
   <input type="text" name="firstName" formControlName="firstName">
-   <div *ngIf="registerForm.touched && registerForm.controls['firstName'].hasError('required')">Enter a first name</div>
+   <div *ngIf="registerForm.touched && (registerForm.controls['firstName'].hasError('required') || registerForm.controls['firstName'].hasError('invalidName'))">Enter a valid first name</div>
   </div>
 
   <div class="dataCapsule"> 
   <labeL>Last name</labeL>
   <input type="text" name="lastName" formControlName="lastName">
-   <div *ngIf="registerForm.touched && registerForm.controls['lastName'].hasError('required')">Enter a last name</div>
+   <div *ngIf="registerForm.touched && (registerForm.controls['lastName'].hasError('required') || registerForm.controls['lastName'].hasError('invalidName')) ">Enter a valid last name</div>
   </div>
 
   <div class="dataCapsule">

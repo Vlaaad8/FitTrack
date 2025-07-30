@@ -4,6 +4,7 @@ import { ServiceService } from '../service/service.service';
 import { NgClass, NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { User } from '../models/user';
+import { SharedService } from '../service/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,10 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.serviceClient.login(authentification).subscribe({
         next: (v) => {
+          this.sharedService.setUser(v);
+          this.serviceClient.getSubscription(v.id).subscribe({
+            next: (m) =>{ this.sharedService.setSub(m); console.log(m)}
+          })
           console.log(v);
           if (v?.role == 'Admin') {
             this.router.navigate(['/admin'])
@@ -45,7 +50,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register'])
   }
 
-  constructor(private formBuilder: FormBuilder, private serviceClient: ServiceService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private serviceClient: ServiceService, private router: Router,private sharedService: SharedService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({

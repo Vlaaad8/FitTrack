@@ -7,3 +7,11 @@ export interface User{
     lastName: string,
     role: string
 }
+
+export interface Subscription{
+    id: number;
+    startDate: Date,
+    endDate: Date,
+    type: string,
+    user: User
+}

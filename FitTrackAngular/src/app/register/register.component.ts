@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ServiceService } from '../service/service.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { nameValidator, passwordValidatior } from './customValidator';
 
 @Component({
   selector: 'app-register',
@@ -29,10 +30,10 @@ registerForm!: FormGroup<any>;
   ngOnInit() {
     this.registerForm=this.formBuilder.group({
       username: ['',[Validators.required,Validators.maxLength(10),Validators.minLength(3)]],
-      password: ['',[Validators.required,Validators.maxLength(10),Validators.minLength(3)]],
+      password: ['',[Validators.required,Validators.maxLength(10),Validators.minLength(3), passwordValidatior()]],
       email: ['',[Validators.required,Validators.email]],
-      firstName: ['',[Validators.required]],
-      lastName: ['',[Validators.required]],
+      firstName: ['',[Validators.required, nameValidator()]],
+      lastName: ['',[Validators.required, nameValidator()]],
       role: ['Client']
     })
   }

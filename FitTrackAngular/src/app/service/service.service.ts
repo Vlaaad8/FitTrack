@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
+import { Subscription, User } from '../models/user';
 import { Observable } from 'rxjs';
 
 const API_USER='http://localhost:8080/FitTrack'
@@ -16,6 +16,9 @@ export class ServiceService {
   }
   register(data: any): Observable<User>{
     return this.http.post<User>(API_USER+'/register',data)
+  }
+  getSubscription(id: number): Observable<Subscription>{
+    return this.http.get<Subscription>(API_USER+`/${id}/subscription`)
   }
 constructor(private http: HttpClient) { }
 
