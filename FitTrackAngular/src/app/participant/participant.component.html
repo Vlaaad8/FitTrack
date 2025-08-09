@@ -2,3 +2,10 @@
   Hello, {{user.firstName}} {{user.lastName}}! Welcome to FitTrack!
   <button (click)="handleSubcription()"> Subscription Details</button>
 </p>
+<p *ngIf="isActive">
+    Type: {{subsription.type}}  <br>
+    Start: {{subsription.startDate}}  <br>
+    End: {{ subsription.endDate}} 
+</p>
+
+<app-training-table></app-training-table>

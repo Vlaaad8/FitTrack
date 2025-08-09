@@ -1,0 +1,9 @@
+.errorClass{
+    color: red
+}
+
+.container {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}

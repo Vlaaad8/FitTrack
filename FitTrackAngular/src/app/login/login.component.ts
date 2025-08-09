@@ -3,8 +3,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ServiceService } from '../service/service.service';
 import { NgClass, NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-import { User } from '../models/user';
+import { Subscription, User } from '../models/user';
 import { SharedService } from '../service/shared.service';
+import { map, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -22,27 +23,24 @@ export class LoginComponent implements OnInit {
       "username": values.username,
       "password": values.password
     }
-    let loggedUser: User;
     if (this.loginForm.valid) {
-      this.serviceClient.login(authentification).subscribe({
-        next: (v) => {
-          this.sharedService.setUser(v);
-          this.serviceClient.getSubscription(v.id).subscribe({
-            next: (m) =>{ this.sharedService.setSub(m); console.log(m)}
-          })
-          console.log(v);
-          if (v?.role == 'Admin') {
-            this.router.navigate(['/admin'])
-          }
-          else if (v?.role == 'Trainer') {
-            this.router.navigate(['/trainer'])
-          }
-          else if (v?.role == 'Participant') {
-            this.router.navigate(['/participant'])
-          }
-        },
-        error: (err) => console.error(err)
-      })
+    
+        this.serviceClient.login(authentification).pipe(
+          tap(user => {this.sharedService.setUser(user)}),
+          switchMap((user : User) => this.serviceClient.getSubscription(user.id).pipe(
+            tap((sub: Subscription) => {this.sharedService.setSub(sub)}),
+            map(()=> user)
+          ))
+        )
+        .subscribe({
+          next: (user)=>{
+
+  if (user.role === 'Admin') this.router.navigate(['/admin']);
+    else if (user.role === 'Trainer') this.router.navigate(['/trainer']);
+    else if (user.role === 'Participant') this.router.navigate(['/participant']);
+  },
+  error: console.error
+});
     }
   }
 
