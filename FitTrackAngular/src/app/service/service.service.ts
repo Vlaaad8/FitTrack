@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subscription, User } from '../models/user';
 import { Observable } from 'rxjs';
+import { Training } from '../models/training';
 
 const API_USER='http://localhost:8080/FitTrack'
 
@@ -19,6 +20,9 @@ export class ServiceService {
   }
   getSubscription(id: number): Observable<Subscription>{
     return this.http.get<Subscription>(API_USER+`/${id}/subscription`)
+  }
+  getTrainings(): Observable<Training[]>{
+    return this.http.get<Training[]>(API_USER+'/trainings')
   }
 constructor(private http: HttpClient) { }
 

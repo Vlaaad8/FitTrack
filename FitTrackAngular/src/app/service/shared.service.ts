@@ -6,50 +6,25 @@ import { User,Subscription } from '../models/user';
   providedIn: 'root'
 })
 export class SharedService {
-  private userSubject = new BehaviorSubject<User>({id:0,
-    username: "",
-    password: "",
-    lastName: "",
-    firstName: "",
-    email: "",
-    role: ""
-  });
-
-
-  private subscriptionSubject=new BehaviorSubject<Subscription>({
-    id:0,
-    type: "",
-    startDate: new Date('2020-10-23'),
-    endDate: new Date('2020-10-23'),
-    user: {id:0,
-    username: "",
-    password: "",
-    lastName: "",
-    firstName: "",
-    email: "",
-    role: ""
-  }
-
-  })
-  user$ = this.userSubject.asObservable();
-  subscription$=this.subscriptionSubject.asObservable();
+  private user!: User
+  private subscription!: Subscription
+  
 
   setUser(user: User) {
-    this.userSubject.next(user);
+    this.user=user;
   }
 
   getUser(): User {
-    return this.userSubject.getValue();
+    return this.user;
   }
 
-  setSub(user: Subscription) {
-    this.subscriptionSubject.next(user);
+  setSub(subscription: Subscription) {
+    this.subscription=subscription;
   }
 
   getSub(): Subscription {
-     return this.subscriptionSubject.getValue();
+     return this.subscription;
   }
-
 
 constructor() { }
 

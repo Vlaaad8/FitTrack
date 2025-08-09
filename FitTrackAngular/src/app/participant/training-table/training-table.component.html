@@ -1,0 +1,22 @@
+<table>
+<thead>
+    <th>
+      Name
+    </th>
+    <th>
+      Hour
+    </th>
+    <th>
+      Trainer
+    </th>
+    <th>
+      Location
+    </th>
+    <th>
+      Capacity
+    </th>
+  </thead>
+    <tr *ngFor="let training of trainings">
+      <app-table-detail [trainingDetail]="training"></app-table-detail>
+    </tr>
+  </table>

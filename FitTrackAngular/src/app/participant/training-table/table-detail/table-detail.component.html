@@ -1,0 +1,23 @@
+<td>
+  {{trainingDetail.title}}
+</td>
+
+<td>
+  {{trainingDetail.hour}}
+</td>
+
+<td>
+  {{trainingDetail.trainer}}
+</td>
+
+<td>
+  {{trainingDetail.location}}
+</td>
+
+<td [ngClass]="trainingDetail.capacity < 1 ? 'errorClass' : '' ">
+  {{trainingDetail.capacity}}
+</td>
+
+<td>
+  <button>Enroll</button>
+</td>
