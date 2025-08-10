@@ -19,5 +19,5 @@
 </td>
 
 <td>
-  <button>Enroll</button>
+  <button [disabled]="trainingDetail.capacity< 1" (click)="handleEnroll()">Enroll</button>
 </td>

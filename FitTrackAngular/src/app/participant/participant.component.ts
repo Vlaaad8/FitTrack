@@ -5,12 +5,13 @@ import { SharedService } from '../service/shared.service';
 import { share } from 'rxjs';
 import { NgIf } from '@angular/common';
 import { TrainingTableComponent } from "./training-table/training-table.component";
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
   selector: 'app-participant',
   templateUrl: './participant.component.html',
   styleUrls: ['./participant.component.css'],
-  imports: [NgIf, TrainingTableComponent]
+  imports: [NgIf, TrainingTableComponent, NavbarComponent]
 })
 export class ParticipantComponent implements OnInit {
 
@@ -27,7 +28,7 @@ export class ParticipantComponent implements OnInit {
   }
 
   handleSubcription() {
-    this.isActive=true;
+    this.isActive=!this.isActive;
     
   
 }
