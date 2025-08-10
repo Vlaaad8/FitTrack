@@ -18,6 +18,7 @@ public class HibernateUtils {
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Subscription.class)
                 .addAnnotatedClass(Training.class)
+                .addAnnotatedClass(Reservation.class)
                 .buildSessionFactory();
         return sessionFactory;
     }

@@ -21,8 +21,11 @@ export class ServiceService {
   getSubscription(id: number): Observable<Subscription>{
     return this.http.get<Subscription>(API_USER+`/${id}/subscription`)
   }
-  getTrainings(): Observable<Training[]>{
-    return this.http.get<Training[]>(API_USER+'/trainings')
+  getTrainings(page: number): Observable<Training[]>{
+    return this.http.get<Training[]>(API_USER+`/trainings/${page}`)
+  }
+  updateTraining(training: Training) : Observable<Training>{
+    return this.http.put<Training>(API_USER+`/trainings/${training.id}`,training)
   }
 constructor(private http: HttpClient) { }
 

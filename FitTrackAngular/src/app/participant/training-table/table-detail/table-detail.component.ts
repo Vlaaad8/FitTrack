@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Training } from '../../../models/training';
 import { CommonModule } from '@angular/common';
 
@@ -10,12 +10,19 @@ import { CommonModule } from '@angular/common';
 })
 export class TableDetailComponent implements OnInit {
 
+
   @Input()
   trainingDetail!: Training;
+
+  @Output()
+  enroll: EventEmitter<any>=new EventEmitter
 
   constructor() { }
 
   ngOnInit() {
+  }
+  handleEnroll() {
+    return this.enroll.emit(this.trainingDetail)
   }
 
 }

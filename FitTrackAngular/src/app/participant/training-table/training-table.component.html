@@ -15,8 +15,14 @@
     <th>
       Capacity
     </th>
+    <th>
+      Action
+    </th>
   </thead>
     <tr *ngFor="let training of trainings">
-      <app-table-detail [trainingDetail]="training"></app-table-detail>
+      <app-table-detail  [trainingDetail]="training" (enroll)="handleEnroll($event)"></app-table-detail>
     </tr>
   </table>
+  <button (click)="handlePrevious()" [disabled]="page == 0">Prev</button>
+  <span> Page 0 of 1</span>
+  <button (click)="handleNext()"> > </button>
