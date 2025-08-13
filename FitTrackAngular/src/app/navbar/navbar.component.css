@@ -1,6 +1,7 @@
 div{
     display: inline;
     margin: 4px;
+    text-align: center;
 }
 nav{
     background-color :aquamarine;
@@ -24,6 +25,7 @@ nav div {
     padding: 0.5rem 1rem;
     transition: background-color 0.25s ease, color 0.25s ease;
     border-radius: 5px;
+    text-align: center;
 }
 
 nav div:hover {
@@ -35,16 +37,6 @@ nav div{
     cursor: default;
     background: none;
     padding-left: 0;
+    text-align: center;
 }
 
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    nav div {
-        width: 100%;
-        text-align: left;
-        padding: 0.5rem 0;
-    }
-}

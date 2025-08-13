@@ -1,15 +1,29 @@
 <app-navbar [user]="user"></app-navbar>
 <div class="container">
-  <div class="leftPart">
+  <div class="leftPart card">
+    <div>
+      <p> My Subscription </p>
+    </div>
     <ul>
       <li>
-        {{subscription.type}}
+        Type: <b>{{subscription.type}} </b>
       </li>
       <li>
-        {{subscription.startDate}}
+        Start Date: {{subscription.startDate}}
       </li>
       <li>
-        {{subscription.endDate}}
+        End Date: {{subscription.endDate}}
+      </li>
+      <li>
+        Pick the subscription that fits your lifestyle and goals. Basic gives you essential classes, Advanced adds more
+        variety and perks, while Premium unlocks everything – from unlimited classes to exclusive benefits. Your
+        fitness, your choice, your way.
+      </li>
+      <li>
+        Click below to see all subscriptions:
+      </li>
+      <li>
+        <button>toDo</button>
       </li>
     </ul>
   </div>
