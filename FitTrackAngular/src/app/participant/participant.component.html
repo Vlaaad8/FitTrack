@@ -1,12 +1,9 @@
 <app-navbar [user]="user"></app-navbar>
-<p>
-  Hello, {{user.firstName}} {{user.lastName}}! Welcome to FitTrack!
-  <button (click)="handleSubcription()"> Subscription Details</button>
-</p>
-<p *ngIf="isActive">
-    Type: {{subsription.type}}  <br>
-    Start: {{subsription.startDate}}  <br>
-    End: {{ subsription.endDate}} 
-</p>
-
+<div class="container">
+<div class="leftPart">
 <app-training-table></app-training-table>
+</div>
+<div class="rightPart">
+  //TODO
+</div>
+</div>

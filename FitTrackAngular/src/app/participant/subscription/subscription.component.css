@@ -1,12 +1,12 @@
 .container{
-    display: flex;
     margin: 20px;
+    display: flex
 }
 .leftPart{
     width: 50%;
     float: left;
 }
 .rightPart{
-    width: 50%;
-    float: right;
+    width:50%;
+    float: right
 }

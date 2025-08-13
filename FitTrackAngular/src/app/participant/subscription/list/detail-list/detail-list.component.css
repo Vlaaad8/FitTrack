@@ -1,13 +1,18 @@
+:host{
+    display:contents
+}
+
+.container {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
 
 body {
     font-family: 'Lato', sans-serif;
 }
 
-.FlightTable {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 10px;
-}
 
 table.center {
     width: 100%;
@@ -15,7 +20,6 @@ table.center {
     margin: 20px 0;
 }
 
-/* Desktop headers */
 th,
 td {
     padding: 12px 15px;
@@ -24,7 +28,6 @@ td {
 }
 
  thead {
-    background-color: #95A5A6;
     font-size: 14px;
     letter-spacing: 0.03em;
 }
@@ -32,6 +35,9 @@ td {
 tbody tr:nth-child(odd) {
     background-color: #ffffff;
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.1);
+}
+button:disabled{
+    background-color: #b0c2cc;
 }
 
  button {
@@ -50,13 +56,15 @@ tbody tr:nth-child(odd) {
  button:hover {
     background-color: #357ab8;
 }
-button:disabled{
-    background-color: #b0c2cc;
-}
 
-.buttonSection{
-    display: flex;
-    justify-content: center;
-    align-items: center;     
-    gap: 1rem;        
+.Finished{
+    color: greenyellow
+
+}
+.Pending{
+    color : #eba434
+
+}
+.Cancelled{
+    color: red
 }
