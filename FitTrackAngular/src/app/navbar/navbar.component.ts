@@ -17,11 +17,15 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
   handleHome() {
-  this.router.navigate(['']);
+  this.router.navigate(['participant']);
   
   }
 
   handleSubscription() {
-  this.router.navigate(['subcription'])
+  this.router.navigate(['subscription'])
+  }
+
+  handleLogOut(){
+    this.router.navigate([''])
   }
 }

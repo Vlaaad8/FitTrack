@@ -28,4 +28,9 @@ public class TrainingController {
         }
         return null;
     }
+
+    @GetMapping("trainings/pages")
+    public int getTrainingPages() {
+        return trainingRepository.numberOfPages();
+    }
 }

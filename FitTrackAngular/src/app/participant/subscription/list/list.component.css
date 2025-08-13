@@ -3,11 +3,6 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-.FlightTable {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 10px;
-}
 
 table.center {
     width: 100%;
@@ -15,7 +10,6 @@ table.center {
     margin: 20px 0;
 }
 
-/* Desktop headers */
 th,
 td {
     padding: 12px 15px;
@@ -52,11 +46,4 @@ tbody tr:nth-child(odd) {
 }
 button:disabled{
     background-color: #b0c2cc;
-}
-
-.buttonSection{
-    display: flex;
-    justify-content: center;
-    align-items: center;     
-    gap: 1rem;        
 }

@@ -16,4 +16,5 @@ public class SubscriptionController {
     Subscription getActiveSubscription(@PathVariable int id) {
         return subscriptionRepository.findCurrentSubscription(id).orElse(null);
     }
+
 }

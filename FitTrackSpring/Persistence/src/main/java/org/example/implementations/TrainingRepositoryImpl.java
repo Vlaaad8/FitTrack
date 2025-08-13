@@ -58,4 +58,11 @@ public class TrainingRepositoryImpl implements TrainingRepository {
             return session.createQuery("from Training order by capacity desc ").setFirstResult((page) * 5).setMaxResults(5).list();
         }
     }
+
+    @Override
+    public int numberOfPages() {
+        try(Session session= HibernateUtils.getSessionFactory().openSession()) {
+            return session.createQuery("from Training ").list().size()/5;
+        }
+    }
 }

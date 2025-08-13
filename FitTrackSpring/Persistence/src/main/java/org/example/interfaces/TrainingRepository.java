@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface TrainingRepository extends Repository<Training> {
     public List<Training> findAllIndexed(int page);
+    public int numberOfPages();
 }

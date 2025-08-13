@@ -1,0 +1,21 @@
+<app-navbar [user]="user"></app-navbar>
+<div class="container">
+  <div class="leftPart">
+    <ul>
+      <li>
+        {{subscription.type}}
+      </li>
+      <li>
+        {{subscription.startDate}}
+      </li>
+      <li>
+        {{subscription.endDate}}
+      </li>
+    </ul>
+  </div>
+  <div class="rightPart">
+    <app-list> </app-list>
+
+  </div>
+
+</div>

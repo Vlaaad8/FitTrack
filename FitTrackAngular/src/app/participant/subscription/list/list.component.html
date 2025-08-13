@@ -1,0 +1,27 @@
+<table>
+<thead>
+  <th>
+    Title
+  </th>
+  <th>
+    Trainer
+  </th>
+  <th>
+    Hour
+  </th>
+  <th>
+    Date
+  </th>
+  <th>
+    Status
+  </th>
+  <th>
+    Modify
+  </th>
+</thead>
+<tbody>
+  <tr *ngFor="let reservation of reservations">
+      <app-detail-list [reservation]="reservation"></app-detail-list>
+  </tr>
+</tbody>
+</table>  

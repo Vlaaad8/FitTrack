@@ -1,4 +1,10 @@
 package org.example.interfaces;
 
-public interface ReservationRepository {
+import org.example.Reservation;
+
+import java.util.List;
+
+public interface ReservationRepository extends Repository<Reservation>{
+
+    List<Reservation> findAllByUser(int id);
 }

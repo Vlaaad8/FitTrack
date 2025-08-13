@@ -1,14 +1,24 @@
-<img src="..\..\assets\logo.png" alt="FitTrack">
-<div class="card">
-<form class="card-form" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+<div class="mainB">
+  <div class="leftPart">
+     <img src="logo.png" width="500px" height="300px" alt="FitTrack">
+  </div>
+      <div class="card" >
+        <form class="card-form" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
 
-  <label class="input-label" for="username">Username</label>
-  <input class="input-field" type="text" name="username" formControlName="username" [ngClass]="loginForm.touched && (loginForm.controls['username'].hasError('minlength') || loginForm.controls['username'].hasError('maxlength')) ? 'isInvalid' : ''">
-  <div *ngIf="loginForm.touched && (loginForm.controls['username'].hasError('minlength') || loginForm.controls['username'].hasError('maxlength'))">User needs to have between 3-10 characters</div>
-  <label class="input-label" for="password">Password</label>
-  <input class="input-field" type="password" name="password" formControlName="password" [ngClass]="loginForm.touched && (loginForm.controls['password'].hasError('minlength') || loginForm.controls['password'].hasError('maxlength')) ? 'isInvalid' : ''">
-  <div *ngIf="loginForm.touched && (loginForm.controls['password'].hasError('minlength') || loginForm.controls['password'].hasError('maxlength'))">Password needs to have between 3-10 characters</div>
-  <button type="submit">Login</button>
-  <button (click)="handleRegister()">Register</button>
-</form>
+          <label class="input-label" for="username">Username</label>
+          <input class="input-field" type="text" name="username" formControlName="username"
+            [ngClass]="loginForm.touched && (loginForm.controls['username'].hasError('minlength') || loginForm.controls['username'].hasError('maxlength')) ? 'isInvalid' : ''">
+          <div
+            *ngIf="loginForm.touched && (loginForm.controls['username'].hasError('minlength') || loginForm.controls['username'].hasError('maxlength'))">
+            User needs to have between 3-10 characters</div>
+          <label class="input-label" for="password">Password</label>
+          <input class="input-field" type="password" name="password" formControlName="password"
+            [ngClass]="loginForm.touched && (loginForm.controls['password'].hasError('minlength') || loginForm.controls['password'].hasError('maxlength')) ? 'isInvalid' : ''">
+          <div
+            *ngIf="loginForm.touched && (loginForm.controls['password'].hasError('minlength') || loginForm.controls['password'].hasError('maxlength'))">
+            Password needs to have between 3-10 characters</div>
+          <button type="submit">Login</button>
+          <button (click)="handleRegister()">Register</button>
+        </form>
+      </div>
 </div>
