@@ -1,46 +1,58 @@
-<form [formGroup]="registerForm" (submit)="handleSubmit()">
-  <div class="dataCapsule">
-  <label>Username</label>
-  <input type="text" name="username" formControlName="username" [ngClass]="registerForm.touched && (registerForm.controls['username'].hasError('minlength') || registerForm.controls['username'].hasError('maxlength')) ? 'isInvalid' : ''">
-  <div *ngIf="registerForm.touched && (registerForm.controls['username'].hasError('minlength') || registerForm.controls['username'].hasError('maxlength'))">User needs to have between 3-10 characters</div>
-  </div>
+<div class="card">
+  <form class="card-form" [formGroup]="registerForm" (submit)="handleSubmit()">
+    <div class="dataCapsule">
+      <label class="input-label">Username</label>
+      <input type="text" class="input-field" name="username" formControlName="username"
+        [ngClass]="registerForm.touched && (registerForm.controls['username'].hasError('minlength') || registerForm.controls['username'].hasError('maxlength')) ? 'isInvalid' : ''">
+      <div
+        *ngIf="registerForm.touched && (registerForm.controls['username'].hasError('minlength') || registerForm.controls['username'].hasError('maxlength'))">
+        User needs to have between 3-10 characters</div>
+    </div>
 
-  <div class="dataCapsule">
-  <label>Password</label>
-  <input type="password" name="password" formControlName="password" [ngClass]="registerForm.touched && (registerForm.controls['password'].hasError('minlength') || registerForm.controls['password'].hasError('maxlength')) ? 'isInvalid' : ''"> 
-  <div *ngIf="registerForm.touched && (registerForm.controls['password'].hasError('minlength') || registerForm.controls['password'].hasError('maxlength') || registerForm.controls['password'].hasError('invalidPassword'))">Password needs to have between 3-10 characters, and must cotains one letter , one number and one special character</div>
-  </div>
+    <div class="dataCapsule">
+      <label class="input-label">Password</label>
+      <input class="input-field" type="password" name="password" formControlName="password"
+        [ngClass]="registerForm.touched && (registerForm.controls['password'].hasError('minlength') || registerForm.controls['password'].hasError('maxlength')) ? 'isInvalid' : ''">
+      <div
+        *ngIf="registerForm.touched && (registerForm.controls['password'].hasError('minlength') || registerForm.controls['password'].hasError('maxlength') || registerForm.controls['password'].hasError('invalidPassword'))">
+        Password needs to have between 3-10 characters, and must cotains one letter , one number and one special
+        character</div>
+    </div>
 
-  <div class="dataCapsule">
-  <label>Email</label>
-  <input type="email" name="email" formControlName="email" [ngClass]="registerForm.touched && registerForm.controls['email'].hasError('email') ? 'isInvalid' : ''">
-  <div *ngIf="registerForm.touched && registerForm.controls['email'].hasError('email')">Email is not valid</div>
-  </div>
+    <div class="dataCapsule">
+      <label class="input-label">Email</label>
+      <input class="input-field" type="email" name="email" formControlName="email"
+        [ngClass]="registerForm.touched && registerForm.controls['email'].hasError('email') ? 'isInvalid' : ''">
+      <div *ngIf="registerForm.touched && registerForm.controls['email'].hasError('email')">Email is not valid</div>
+    </div>
 
-  <div class="dataCapsule">
-  <label>First name</label>
-  <input type="text" name="firstName" formControlName="firstName">
-   <div *ngIf="registerForm.touched && (registerForm.controls['firstName'].hasError('required') || registerForm.controls['firstName'].hasError('invalidName'))">Enter a valid first name</div>
-  </div>
+    <div class="dataCapsule">
+      <label class="input-label">First name</label>
+      <input class="input-field" type="text" name="firstName" formControlName="firstName">
+      <div
+        *ngIf="registerForm.touched && (registerForm.controls['firstName'].hasError('required') || registerForm.controls['firstName'].hasError('invalidName'))">
+        Enter a valid first name</div>
+    </div>
 
-  <div class="dataCapsule"> 
-  <labeL>Last name</labeL>
-  <input type="text" name="lastName" formControlName="lastName">
-   <div *ngIf="registerForm.touched && (registerForm.controls['lastName'].hasError('required') || registerForm.controls['lastName'].hasError('invalidName')) ">Enter a valid last name</div>
-  </div>
+    <div class="dataCapsule">
+      <labeL class="input-label">Last name</labeL>
+      <input class="input-field" type="text" name="lastName" formControlName="lastName">
+      <div
+        *ngIf="registerForm.touched && (registerForm.controls['lastName'].hasError('required') || registerForm.controls['lastName'].hasError('invalidName')) ">
+        Enter a valid last name</div>
+    </div>
 
-  <div class="dataCapsule">
-  <label>Role</label>
-  <label>Admin</label>
-  <input type="radio" name="role" value="Admin" formControlName="role">
-    <label>Participant</label>
-  <input type="radio" name="role" value="Participant" formControlName="role">
-    <label>Trainer</label>
-  <input type="radio" name="role" value="Trainer" formControlName="role">
-  </div>
+    <div class="dataCapsule">
+      <label class="input-label">Role</label>
+      <label>Admin</label>
+      <input type="radio" name="role" value="Admin" formControlName="role">
+      <label>Participant</label>
+      <input  type="radio" name="role" value="Participant" formControlName="role">
+      <label>Trainer</label>
+      <input  type="radio" name="role" value="Trainer" formControlName="role">
+    </div>
 
-  <button type="submit">Register</button>
+    <button type="submit">Register</button>
 
-
-
-</form>
+  </form>
+</div>
