@@ -6,12 +6,12 @@ import { share } from 'rxjs';
 import { NgIf } from '@angular/common';
 import { TrainingTableComponent } from "./training-table/training-table.component";
 import { NavbarComponent } from "../navbar/navbar.component";
-
+import {MatTableModule} from '@angular/material/table';
 @Component({
   selector: 'app-participant',
   templateUrl: './participant.component.html',
   styleUrls: ['./participant.component.css'],
-  imports: [NgIf, TrainingTableComponent, NavbarComponent]
+  imports: [NgIf, TrainingTableComponent, NavbarComponent,MatTableModule]
 })
 export class ParticipantComponent implements OnInit {
 
