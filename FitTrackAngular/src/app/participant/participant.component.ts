@@ -23,7 +23,6 @@ export class ParticipantComponent implements OnInit {
 
   ngOnInit() {
     this.user=this.sharedService.getUser();
-    this.subsription=this.sharedService.getSub();
     this.isActive=false;
   }
 

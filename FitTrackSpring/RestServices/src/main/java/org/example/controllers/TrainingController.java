@@ -3,6 +3,7 @@ package org.example.controllers;
 import jdk.jfr.Unsigned;
 import org.example.Training;
 import org.example.interfaces.TrainingRepository;
+import org.example.service.ServiceApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,27 +11,23 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping("/FitTrack")
+@RequestMapping("/FitTrack/trainings")
 public class TrainingController {
 
-    @Autowired
-    private TrainingRepository trainingRepository;
+   private final ServiceApplication service;
 
-    @GetMapping("trainings")
+    public TrainingController(ServiceApplication service) {
+        this.service = service;
+    }
+
+    @GetMapping()
     public List<Training> getTrainings() {
-        return trainingRepository.findAll();
+        return service.getAllTrainings();
     }
 
-    @PutMapping("trainings/{id}")
+    @PutMapping("{id}")
     public Training updateTraining(@PathVariable int id, @RequestBody Training training) {
-        if (training.getId() == id) {
-            return trainingRepository.update(training).orElse(null);
-        }
-        return null;
+        return service.updateTraining(id,training).orElse(null);
     }
 
-    @GetMapping("trainings/pages")
-    public int getTrainingPages() {
-        return trainingRepository.numberOfPages();
-    }
 }

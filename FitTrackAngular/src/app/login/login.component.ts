@@ -27,10 +27,6 @@ export class LoginComponent implements OnInit {
     
         this.serviceClient.login(authentification).pipe(
           tap(user => {this.sharedService.setUser(user)}),
-          switchMap((user : User) => this.serviceClient.getSubscription(user.id).pipe(
-            tap((sub: Subscription) => {this.sharedService.setSub(sub)}),
-            map(()=> user)
-          ))
         )
         .subscribe({
           next: (user)=>{

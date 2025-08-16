@@ -1,10 +1,11 @@
 package org.example.interfaces;
 
 import org.example.Training;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface TrainingRepository extends Repository<Training> {
-    public List<Training> findAllIndexed(int page);
-    public int numberOfPages();
+@Repository
+public interface TrainingRepository extends JpaRepository<Training, Integer> {
 }
