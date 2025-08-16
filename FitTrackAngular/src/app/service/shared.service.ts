@@ -7,10 +7,10 @@ import { User,Subscription } from '../models/user';
 })
 export class SharedService {
   private user!: User
-  private subscription!: Subscription
   
 
   setUser(user: User) {
+    console.log('S-a logat ' + user)
     this.user=user;
   }
 
@@ -18,13 +18,6 @@ export class SharedService {
     return this.user;
   }
 
-  setSub(subscription: Subscription) {
-    this.subscription=subscription;
-  }
-
-  getSub(): Subscription {
-     return this.subscription;
-  }
 
 constructor() { }
 

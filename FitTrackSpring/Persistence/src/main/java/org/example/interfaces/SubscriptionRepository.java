@@ -1,10 +1,17 @@
 package org.example.interfaces;
 
 import org.example.Subscription;
-import org.example.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
-public interface SubscriptionRepository extends Repository<Subscription> {
-    Optional<Subscription> findCurrentSubscription(int id);
+@Repository
+public interface SubscriptionRepository extends JpaRepository<Subscription, Integer> {
+
+    @Query("from Subscription where endDate>=:currentDate and startDate<=:currentDate and user.id=:id")
+    Optional<Subscription> findCurrentSubscription(@Param("id") int id, @Param("currentDate") LocalDate currentDate);
 }

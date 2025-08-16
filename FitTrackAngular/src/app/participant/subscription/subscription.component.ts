@@ -5,6 +5,7 @@ import { NavbarComponent } from "../../navbar/navbar.component";
 import { SharedService } from '../../service/shared.service';
 import { ServiceService } from '../../service/service.service';
 import { ListComponent } from "./list/list.component";
+import { ComponentResourceCollector } from '@angular/cdk/schematics';
 
 @Component({
   selector: 'app-subscription',
@@ -15,19 +16,20 @@ import { ListComponent } from "./list/list.component";
 export class SubscriptionComponent implements OnInit {
 
   subscription!: Subscription;
-  reservations!: Reservation[];
   user!: User;
 
-  constructor(private sharedService: SharedService,private service: ServiceService) { }
+  constructor(private sharedService: SharedService,private service: ServiceService) {
+    this.user=this.sharedService.getUser();
+  
+    console.log(this.user)
+  }
+   
 
   ngOnInit() {
-    this.subscription=this.sharedService.getSub();
-    this.user=this.sharedService.getUser();
-    this.service.getUserRegistrations(this.user.id).subscribe({
-      next: r => this.reservations=r,
-      error: e =>  console.error(e)
+    console.log(this.subscription)
+    this.service.getSubscription(this.user.id).subscribe({
+      next: (s)=> this.subscription=s,
+      error: (e) => console.error(e)
     })
-
   }
-
 }

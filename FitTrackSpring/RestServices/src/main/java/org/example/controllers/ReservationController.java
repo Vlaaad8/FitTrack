@@ -3,6 +3,7 @@ package org.example.controllers;
 
 import org.example.Reservation;
 import org.example.interfaces.ReservationRepository;
+import org.example.service.ServiceApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,19 +11,22 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping("/FitTrack")
+@RequestMapping("/FitTrack/reservations")
 public class ReservationController {
 
-    @Autowired
-    private ReservationRepository reservationRepository;
+   private final ServiceApplication service;
 
-    @GetMapping("reservations/{id}")
+   public ReservationController(ServiceApplication service) {
+       this.service = service;
+   }
+
+    @GetMapping("{id}")
     public List<Reservation> getUserReservations(@PathVariable int id) {
-        return reservationRepository.findAllByUser(id);
+            return service.getUserReservations(id);
     }
 
-    @PostMapping("reservations")
+    @PostMapping()
     public Reservation addReservation(@RequestBody Reservation reservation) {
-        return reservationRepository.save(reservation).orElse(null);
+        return service.saveReservation(reservation);
     }
 }

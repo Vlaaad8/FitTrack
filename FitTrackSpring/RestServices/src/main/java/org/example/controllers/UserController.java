@@ -3,6 +3,7 @@ package org.example.controllers;
 import org.example.LoginRecord;
 import org.example.User;
 import org.example.interfaces.UserRepository;
+import org.example.service.ServiceApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,16 +12,19 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/FitTrack")
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final ServiceApplication service;
+
+    public UserController(ServiceApplication service) {
+        this.service = service;
+    }
 
     @PostMapping("/login")
     public User login(@RequestBody LoginRecord loginRecord){
-        return userRepository.login(loginRecord.username(), loginRecord.password()).orElse(null);
+        return service.login(loginRecord.username(),loginRecord.password()).orElse(null);
     }
     @PostMapping("/register")
     public User register(@RequestBody User newUser){
-        return userRepository.save(newUser).orElse(null);
+        return service.register(newUser);
     }
 
 
