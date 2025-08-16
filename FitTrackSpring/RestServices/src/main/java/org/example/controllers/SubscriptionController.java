@@ -1,12 +1,8 @@
 package org.example.controllers;
 
 import org.example.Subscription;
-import org.example.interfaces.SubscriptionRepository;
 import org.example.service.ServiceApplication;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.security.Provider;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")

@@ -4,12 +4,11 @@ import org.example.Reservation;
 import org.example.Subscription;
 import org.example.Training;
 import org.example.User;
-import org.example.interfaces.ReservationRepository;
-import org.example.interfaces.SubscriptionRepository;
-import org.example.interfaces.TrainingRepository;
-import org.example.interfaces.UserRepository;
+import org.example.repository.ReservationRepository;
+import org.example.repository.SubscriptionRepository;
+import org.example.repository.TrainingRepository;
+import org.example.repository.UserRepository;
 import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

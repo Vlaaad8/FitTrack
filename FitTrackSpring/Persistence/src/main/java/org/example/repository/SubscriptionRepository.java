@@ -1,4 +1,4 @@
-package org.example.interfaces;
+package org.example.repository;
 
 import org.example.Subscription;
 import org.springframework.data.jpa.repository.JpaRepository;
