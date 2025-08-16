@@ -2,9 +2,7 @@ package org.example.controllers;
 
 import org.example.LoginRecord;
 import org.example.User;
-import org.example.interfaces.UserRepository;
 import org.example.service.ServiceApplication;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

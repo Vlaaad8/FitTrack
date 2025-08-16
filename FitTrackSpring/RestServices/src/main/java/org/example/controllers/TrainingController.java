@@ -1,10 +1,7 @@
 package org.example.controllers;
 
-import jdk.jfr.Unsigned;
 import org.example.Training;
-import org.example.interfaces.TrainingRepository;
 import org.example.service.ServiceApplication;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

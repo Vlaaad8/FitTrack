@@ -2,9 +2,7 @@ package org.example.controllers;
 
 
 import org.example.Reservation;
-import org.example.interfaces.ReservationRepository;
 import org.example.service.ServiceApplication;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
