@@ -16,9 +16,9 @@ public class TrainingController {
     @Autowired
     private TrainingRepository trainingRepository;
 
-    @GetMapping("trainings/{page}")
-    public List<Training> getTrainings(@PathVariable int page) {
-        return trainingRepository.findAllIndexed(page);
+    @GetMapping("trainings")
+    public List<Training> getTrainings() {
+        return trainingRepository.findAll();
     }
 
     @PutMapping("trainings/{id}")

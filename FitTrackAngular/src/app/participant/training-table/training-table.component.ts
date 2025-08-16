@@ -1,36 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Training } from '../../models/training';
 import { ServiceService } from '../../service/service.service';
 import { every, max, TruthyTypesOf } from 'rxjs';
-import { TableDetailComponent } from "./table-detail/table-detail.component";
 import { CommonModule } from '@angular/common';
 import { SharedService } from '../../service/shared.service';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { MatPaginator,MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-training-table',
   templateUrl: './training-table.component.html',
   styleUrls: ['./training-table.component.css'],
-  imports: [TableDetailComponent,CommonModule]
+  imports: [CommonModule, MatTableModule,MatPaginatorModule]
 })
-export class TrainingTableComponent implements OnInit {
+export class TrainingTableComponent implements OnInit,AfterViewInit {
 
-  trainings!: Training[];
-  page: number = 0;
-  maxPage!: number
+  dataSource = new MatTableDataSource<Training>();
+  displayColumns: string[] = ['title','hour','trainer','location','capacity','enroll']
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
 
   constructor(private service: ServiceService,private sharedService: SharedService) {
    }
+  ngAfterViewInit(): void {
+    this.dataSource.paginator=this.paginator;
+  }
 
   ngOnInit() {
-    this.service.getTrainings(this.page).subscribe(data => {
-      this.trainings=data;
+    this.service.getTrainings().subscribe(data => {
+      this.dataSource.data=data;
     })
-    this.service.getNumberOfPages().subscribe({
-      next: (data) => this.maxPage=data,
-      error: err => console.error(err)
-    })
- }
- handleEnroll($event: any) {
+  }
+ 
+ handleEnroll($event: Training) {
+  if($event.capacity>0){
   $event.capacity=$event.capacity-1;
     this.service.updateTraining($event).subscribe({
       error: err => console.error(err)
@@ -43,22 +47,8 @@ export class TrainingTableComponent implements OnInit {
     }
     this.service.saveRegistration(reservation).subscribe((v)=> console.log(v))
   }
-  handleNext() {
-    if(this.page<this.maxPage-1){
-    this.page=this.page+1;
-    this.service.getTrainings(this.page).subscribe(data => {
-      this.trainings=data;
-    })
-  }
-  }
-handlePrevious() {
-    if(this.page>0){
-      this.page=this.page-1;
-    this.service.getTrainings(this.page).subscribe(data => {
-      this.trainings=data;
-    })
-  }
+}
+  
 }
 
 
-}
