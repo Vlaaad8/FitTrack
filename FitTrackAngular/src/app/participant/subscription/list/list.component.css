@@ -47,3 +47,13 @@ tbody tr:nth-child(odd) {
 button:disabled{
     background-color: #b0c2cc;
 }
+
+.Pending{
+    color: rgb(255, 140, 0);
+}
+.Cancelled{
+    color: rgba(187, 27, 27, 0.848)
+}
+.Finished{
+    color: rgb(22, 98, 22)
+}
