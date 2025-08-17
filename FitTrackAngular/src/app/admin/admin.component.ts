@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { User } from '../models/user';
 import { ServiceService } from '../service/service.service';
-import { SharedService } from '../service/shared.service';
 import { CommonModule } from '@angular/common';
 import { ClassStatsComponent } from "./class-stats/class-stats.component";
 
@@ -17,7 +16,7 @@ export class AdminComponent implements OnInit {
   user!: User;
   trainers!: string[];
 
-  constructor(private service: ServiceService,private sharedService: SharedService) { }
+  constructor(private service: ServiceService) { }
 
   ngOnInit() { 
     this.service.getTrainers().pipe(
