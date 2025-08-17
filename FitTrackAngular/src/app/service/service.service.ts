@@ -34,8 +34,14 @@ export class ServiceService {
   getUserRegistrations(id: number): Observable<Reservation[]>{
     return this.http.get<Reservation[]>(API_USER+`/reservations/${id}`);
   }
-  getNumberOfPages(): Observable<number>{
-    return this.http.get<number>(API_USER+"/trainings/pages");
+  getTrainers(): Observable<string[]>{
+    return this.http.get<string[]>(API_USER+"/trainings/trainers");
+  }
+  getTrainerReservedSlots(trainerName: string): Observable<number>{
+    return this.http.get<number>(API_USER+`/reservations?trainerName=${trainerName}`);
+  }
+  getTrainerEmptySlots(trainerName: string): Observable<number>{
+    return this.http.get<number>(API_USER+`/trainings/trainers/capacity?trainerName=${trainerName}`)
   }
 constructor(private http: HttpClient) { }
 

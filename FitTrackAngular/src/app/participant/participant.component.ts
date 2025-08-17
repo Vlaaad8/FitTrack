@@ -13,23 +13,18 @@ import {MatTableModule} from '@angular/material/table';
   styleUrls: ['./participant.component.css'],
   imports: [NgIf, TrainingTableComponent, NavbarComponent,MatTableModule]
 })
-export class ParticipantComponent implements OnInit {
+export class ParticipantComponent implements OnInit{
 
   user!: User
-  subsription!: Subscription;
-  isActive!: boolean;
 
   constructor(private router: Router,private sharedService:SharedService) { }
 
   ngOnInit() {
-    this.user=this.sharedService.getUser();
-    this.isActive=false;
+    const storedUser = sessionStorage.getItem("loggedUser")
+    if(storedUser){
+    this.user=JSON.parse(storedUser);
+    }
   }
 
-  handleSubcription() {
-    this.isActive=!this.isActive;
-    
-  
-}
 
 }

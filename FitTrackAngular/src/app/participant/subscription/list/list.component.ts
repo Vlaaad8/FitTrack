@@ -5,15 +5,15 @@ import { User } from '../../../models/user';
 import { SharedService } from '../../../service/shared.service';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatPaginator,MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
-  imports: [CommonModule, MatTableModule,MatPaginatorModule]
+  imports: [CommonModule, MatTableModule, MatPaginatorModule]
 })
-export class ListComponent implements OnInit,AfterViewInit{
+export class ListComponent implements OnInit, AfterViewInit {
 
   user!: User;
 
@@ -26,18 +26,22 @@ export class ListComponent implements OnInit,AfterViewInit{
 
 
   ngAfterViewInit(): void {
-      this.dataSource.paginator=this.paginator;
+    this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit() {
-    this.user = this.sharedService.getUser();
+    const savedUser = sessionStorage.getItem('loggedUser')
+    if (savedUser) {
+      this.user = JSON.parse(savedUser)
+    }
+
     this.service.getUserRegistrations(this.user.id).subscribe({
-      next: (data: Reservation[]) => this.dataSource.data=data,
+      next: (data: Reservation[]) => this.dataSource.data = data,
       error: err => console.error(err)
     })
   }
 
-  formatDate(date: string) : string{
+  formatDate(date: string): string {
     console.log(date)
     return date.split('T')[0];
   }
