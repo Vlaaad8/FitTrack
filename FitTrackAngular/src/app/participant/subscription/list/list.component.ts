@@ -2,7 +2,6 @@ import { AfterViewChecked, AfterViewInit, Component, OnInit, ViewChild } from '@
 import { Reservation } from '../../../models/reservation';
 import { ServiceService } from '../../../service/service.service';
 import { User } from '../../../models/user';
-import { SharedService } from '../../../service/shared.service';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -22,7 +21,7 @@ export class ListComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private service: ServiceService, private sharedService: SharedService) { }
+  constructor(private service: ServiceService) { }
 
 
   ngAfterViewInit(): void {

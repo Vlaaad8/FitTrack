@@ -1,9 +1,9 @@
 package org.example.service;
 
-import org.example.Reservation;
-import org.example.Subscription;
-import org.example.Training;
-import org.example.User;
+import org.example.entities.Reservation;
+import org.example.entities.Subscription;
+import org.example.entities.Training;
+import org.example.entities.User;
 import org.example.repository.ReservationRepository;
 import org.example.repository.SubscriptionRepository;
 import org.example.repository.TrainingRepository;

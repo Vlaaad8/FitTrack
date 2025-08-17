@@ -4,7 +4,6 @@ import { ServiceService } from '../service/service.service';
 import { NgClass, NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { Subscription, User } from '../models/user';
-import { SharedService } from '../service/shared.service';
 import { map, switchMap, tap } from 'rxjs';
 
 @Component({
@@ -44,7 +43,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register'])
   }
 
-  constructor(private formBuilder: FormBuilder, private serviceClient: ServiceService, private router: Router,private sharedService: SharedService) { }
+  constructor(private formBuilder: FormBuilder, private serviceClient: ServiceService, private router: Router) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({

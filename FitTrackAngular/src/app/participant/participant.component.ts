@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription, User } from '../models/user';
 import { Router } from '@angular/router';
-import { SharedService } from '../service/shared.service';
 import { share } from 'rxjs';
 import { NgIf } from '@angular/common';
 import { TrainingTableComponent } from "./training-table/training-table.component";
@@ -17,7 +16,7 @@ export class ParticipantComponent implements OnInit{
 
   user!: User
 
-  constructor(private router: Router,private sharedService:SharedService) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     const storedUser = sessionStorage.getItem("loggedUser")

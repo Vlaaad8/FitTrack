@@ -1,6 +1,6 @@
 package org.example.repository;
 
-import org.example.Reservation;
+import org.example.entities.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

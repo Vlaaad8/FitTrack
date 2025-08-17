@@ -1,8 +1,7 @@
-package org.example;
+package org.example.entities;
 
 
 import jakarta.persistence.*;
-import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,16 +10,16 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="users")
+@Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, unique = true)
     private String username;
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
     private String firstName;
@@ -29,7 +28,7 @@ public class User {
     @Column(nullable = false)
     private Role role;
 
-    public User(String username, String password, String email, String firstName, String lastName,Role role) {
+    public User(String username, String password, String email, String firstName, String lastName, Role role) {
         this.username = username;
         this.password = password;
         this.email = email;

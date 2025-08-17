@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription, User } from '../../models/user';
 import { Reservation } from '../../models/reservation';
 import { NavbarComponent } from "../../navbar/navbar.component";
-import { SharedService } from '../../service/shared.service';
 import { ServiceService } from '../../service/service.service';
 import { ListComponent } from "./list/list.component";
 import { ComponentResourceCollector } from '@angular/cdk/schematics';
