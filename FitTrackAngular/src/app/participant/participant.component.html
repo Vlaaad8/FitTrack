@@ -1,4 +1,4 @@
-<app-navbar [user]="user"></app-navbar>
+<app-navbar *ngIf="user" [user]="user"></app-navbar>
 <div class="container">
 <div class="leftPart">
 <app-training-table></app-training-table>

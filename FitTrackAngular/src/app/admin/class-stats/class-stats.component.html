@@ -1,0 +1,5 @@
+<select (change)="updateChart($event)">
+    <option *ngFor="let trainer of trainers" [value]="trainer">{{trainer}}</option>
+</select>
+
+<canvas id="myChart"> {{chart}} </canvas>

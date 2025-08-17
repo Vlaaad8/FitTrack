@@ -3,22 +3,28 @@ import { NavbarComponent } from "../navbar/navbar.component";
 import { User } from '../models/user';
 import { ServiceService } from '../service/service.service';
 import { SharedService } from '../service/shared.service';
+import { CommonModule } from '@angular/common';
+import { ClassStatsComponent } from "./class-stats/class-stats.component";
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css'],
-  imports: [NavbarComponent]
+  imports: [NavbarComponent, CommonModule, ClassStatsComponent]
 })
 export class AdminComponent implements OnInit {
-  user!: User
+
+  user!: User;
+  trainers!: string[];
 
   constructor(private service: ServiceService,private sharedService: SharedService) { }
 
-  ngOnInit() {
-    this.user=this.sharedService.getUser(); 
-    console.log(this.user);
-
+  ngOnInit() { 
+    this.service.getTrainers().pipe(
+      
+    ).subscribe((data: string[])=>{
+      this.trainers=data;
+    })
   }
 
 }

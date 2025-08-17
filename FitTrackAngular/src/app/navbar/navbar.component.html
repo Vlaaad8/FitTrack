@@ -1,4 +1,4 @@
-<nav>
+<!-- <nav>
   <div>
   {{user.firstName}} {{user.lastName}}
   </div>
@@ -12,4 +12,12 @@
   <div (click)="handleLogOut()">
     Log Out
   </div>
-</nav>
+</nav> -->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <span> {{user.firstName}} {{user.lastName}} </span>
+      <span (click)="handleSubscription()"> Subscription </span>
+      <span (click)="handleHome()"> Home </span>
+      <span (click)="handleLogOut()"> Log Out </span>
+  </mat-toolbar-row>
+</mat-toolbar>

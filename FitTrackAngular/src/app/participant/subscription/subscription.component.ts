@@ -6,6 +6,7 @@ import { SharedService } from '../../service/shared.service';
 import { ServiceService } from '../../service/service.service';
 import { ListComponent } from "./list/list.component";
 import { ComponentResourceCollector } from '@angular/cdk/schematics';
+import { L } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-subscription',
@@ -18,17 +19,19 @@ export class SubscriptionComponent implements OnInit {
   subscription!: Subscription;
   user!: User;
 
-  constructor(private sharedService: SharedService,private service: ServiceService) {
-    this.user=this.sharedService.getUser();
-  
-    console.log(this.user)
-  }
-   
+  constructor(private service: ServiceService) {
 
+  }
   ngOnInit() {
-    console.log(this.subscription)
+
+    const savedUser = sessionStorage.getItem('loggedUser')
+    if (savedUser) {
+      this.user = JSON.parse(savedUser)
+    }
+
+    
     this.service.getSubscription(this.user.id).subscribe({
-      next: (s)=> this.subscription=s,
+      next: (s) => this.subscription = s,
       error: (e) => console.error(e)
     })
   }

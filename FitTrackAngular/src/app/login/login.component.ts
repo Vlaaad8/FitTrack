@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
     
         this.serviceClient.login(authentification).pipe(
-          tap(user => {this.sharedService.setUser(user)}),
+          tap(user => {sessionStorage.setItem('loggedUser',JSON.stringify(user))}),
         )
         .subscribe({
           next: (user)=>{

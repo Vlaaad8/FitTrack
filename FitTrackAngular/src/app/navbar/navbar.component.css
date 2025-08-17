@@ -1,14 +1,14 @@
-div{
+span{
     display: inline;
     margin: 4px;
     text-align: center;
 }
-nav{
+mat-toolbar{
     background-color :aquamarine;
     height: 30px;
 }
 
-nav {
+mat-toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,7 +19,7 @@ nav {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-nav div {
+mat-toolbar span {
     cursor: pointer;
     font-weight: 500;
     padding: 0.5rem 1rem;
@@ -28,11 +28,11 @@ nav div {
     text-align: center;
 }
 
-nav div:hover {
+mat-toolbar span:hover {
     background-color: #357ab8; 
 }
 
-nav div{
+mat-toolbar span{
     font-weight: bold;
     cursor: default;
     background: none;

@@ -79,4 +79,19 @@ public class ServiceApplication {
     public Subscription getUserSubscription(int userId) {
         return subscriptionRepository.findCurrentSubscription(userId, LocalDate.now()).orElse(null);
     }
+
+    @Transactional(readOnly = true)
+    public List<String> getTrainers(){
+        return trainingRepository.getTrainerNames();
+    }
+
+    @Transactional(readOnly = true)
+    public int getTrainerCapacity(String trainerName) {
+        return trainingRepository.getTrainerTotalCapacity(trainerName);
+    }
+
+    @Transactional(readOnly = true)
+    public int getTrainerBookingCount(String trainerName) {
+        return reservationRepository.countByTraining_Trainer(trainerName);
+    }
 }

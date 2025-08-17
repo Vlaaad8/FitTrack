@@ -26,5 +26,13 @@ public class TrainingController {
     public Training updateTraining(@PathVariable int id, @RequestBody Training training) {
         return service.updateTraining(id,training).orElse(null);
     }
+    @GetMapping("trainers")
+    public List<String> getTrainers() {
+        return service.getTrainers();
+    }
+    @GetMapping("trainers/capacity")
+    public int getTrainerCapacity(@RequestParam String trainerName) {
+        return service.getTrainerCapacity(trainerName);
+    }
 
 }
