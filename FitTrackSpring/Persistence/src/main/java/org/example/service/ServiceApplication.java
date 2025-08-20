@@ -1,9 +1,6 @@
 package org.example.service;
 
-import org.example.entities.Reservation;
-import org.example.entities.Subscription;
-import org.example.entities.Training;
-import org.example.entities.User;
+import org.example.entities.*;
 import org.example.repository.ReservationRepository;
 import org.example.repository.SubscriptionRepository;
 import org.example.repository.TrainingRepository;
@@ -94,4 +91,42 @@ public class ServiceApplication {
     public int getTrainerBookingCount(String trainerName) {
         return reservationRepository.countByTraining_Trainer(trainerName);
     }
+    @Transactional(readOnly = true)
+    public int getUsers(){
+        return userRepository.findAll().size();
+    }
+    @Transactional(readOnly = true)
+    public int getActiveUsers(){
+        return reservationRepository.countActiveUsers();
+    }
+    @Transactional
+    public void removeTraining(int id){
+        trainingRepository.deleteById(id);
+    }
+
+    @Transactional
+    public Training saveTraining(Training training) {
+        return trainingRepository.save(training);
+    }
+    @Transactional(readOnly = true)
+    public int[] countUserRoles(){
+        int [] array=new int[3];
+        array[0]=userRepository.countByRole(Role.Participant);
+        array[1]=userRepository.countByRole(Role.Admin);
+        array[2]=userRepository.countByRole(Role.Trainer);
+        return array;
+    }
+
+    @Transactional(readOnly = true)
+    public int[] getClassSeats(String title){
+        int [] array=new int[2];
+        array[0]=reservationRepository.countByTraining_Title(title);
+        array[1]=trainingRepository.getTrainingCapacityByTitle(title);
+        return array;
+        }
+
+        @Transactional
+    public List<String> getTrainingTitles(){
+        return trainingRepository.getTrainingTitles();
+        }
 }

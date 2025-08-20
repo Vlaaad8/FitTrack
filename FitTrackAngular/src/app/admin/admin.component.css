@@ -1,0 +1,13 @@
+.leftPart{
+    width: 50%;
+    float: left;
+}
+.rightPart{
+     width: 50%;
+    float: right;
+
+}
+.container{
+    display: flex;
+    height: 100%;
+}

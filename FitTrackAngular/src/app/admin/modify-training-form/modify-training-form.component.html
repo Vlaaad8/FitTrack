@@ -1,0 +1,32 @@
+<div class="card">
+  <p>Modify an existing training class</p>
+  <form [formGroup]="modifyForm" (ngSubmit)="handleModify()" class="card-form">
+
+    <div class="input">
+      <label for="title" class="input-label">Title</label>
+      <input type="text" id="title" formControlName="title" class="input-field">
+    </div>
+
+    <div class="input">
+      <label for="trainer" class="input-label">Trainer</label>
+      <input type="text" id="trainer" formControlName="trainer" class="input-field">
+    </div>
+
+    <div class="input">
+      <label for="location" class="input-label">Location</label>
+      <input type="text" id="location" formControlName="location" class="input-field">
+    </div>
+
+    <div class="input">
+      <label for="capacity" class="input-label">Capacity</label>
+      <input type="number" id="capacity" formControlName="capacity" class="input-field">
+    </div>
+
+    <div class="input">
+      <label for="hour" class="input-label">Hour</label>
+      <input type="time" id="hour" formControlName="hour" class="input-field">
+    </div>
+
+    <button type="submit">Modify</button>
+  </form>
+</div>

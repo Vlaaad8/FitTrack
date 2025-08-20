@@ -4,6 +4,7 @@ import { Subscription, User } from '../models/user';
 import { Observable } from 'rxjs';
 import { Training } from '../models/training';
 import { Reservation } from '../models/reservation';
+import { A } from '@angular/cdk/keycodes';
 
 const API_USER='http://localhost:8080/FitTrack'
 
@@ -42,6 +43,27 @@ export class ServiceService {
   }
   getTrainerEmptySlots(trainerName: string): Observable<number>{
     return this.http.get<number>(API_USER+`/trainings/trainers/capacity?trainerName=${trainerName}`)
+  }
+  getActiveUsers(): Observable<number>{
+    return this.http.get<number>(API_USER+"/users/active")
+  }
+  getAllUsers(): Observable<number>{
+    return this.http.get<number>(API_USER+"/users")
+  }
+  removeTraining(id: number){
+    this.http.delete(API_USER+`/trainings/${id}`)
+  }
+  addTraining(training: Training): Observable<Training> {
+    return this.http.post<Training>(API_USER+'/trainings',training);
+  }
+  getUserRoleCount(): Observable<number[]>{
+    return this.http.get<number[]>(API_USER+'/users/role')
+  }
+  getTrainingTitles(): Observable<string[]>{
+    return this.http.get<string[]>(API_USER+'/trainings/titles')
+  }
+  getClassOcupyData(title: string): Observable<number[]>{
+    return this.http.get<number[]>(API_USER+`/trainings/${title}/capacity`)
   }
 constructor(private http: HttpClient) { }
 

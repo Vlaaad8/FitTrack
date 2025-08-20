@@ -15,4 +15,10 @@ public interface TrainingRepository extends JpaRepository<Training, Integer> {
 
     @Query("SELECT SUM(t.capacity) from Training t where t.trainer=:trainer")
     int getTrainerTotalCapacity(@Param("trainer") String trainer);
+
+    @Query("SELECT t.capacity from Training t where t.title=:title")
+    int getTrainingCapacityByTitle(@Param("title") String title);
+
+    @Query("SELECT DISTINCT t.title from Training t")
+    List<String> getTrainingTitles();
 }

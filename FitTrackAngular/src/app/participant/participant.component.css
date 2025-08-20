@@ -7,6 +7,7 @@
     float: left;
 }
 .rightPart{
+    margin-left: 50px;
     width: 50%;
     float: right;
 }

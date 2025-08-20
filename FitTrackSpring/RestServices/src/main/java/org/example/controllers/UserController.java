@@ -29,5 +29,18 @@ public class UserController {
         return UserMapper.INSTANCE.userToUserDTO(service.register(savedUser));
     }
 
+    @GetMapping("/users")
+    public int getUserCount(){
+        return service.getUsers();
+    }
+    @GetMapping("/users/active")
+    public int getActiveUserCount(){
+        return service.getActiveUsers();
+    }
+
+    @GetMapping("users/role")
+    public int[] getUserRoleCount(){
+        return service.countUserRoles();
+    }
 
 }

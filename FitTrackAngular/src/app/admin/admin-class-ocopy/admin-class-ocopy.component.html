@@ -1,0 +1,16 @@
+<select (change)="handleChange($event)">
+<option *ngFor="let title of titles" [value]="title">{{title}}</option>
+</select>
+<canvas id="classOcupy" width="500px"> {{chart}} </canvas>
+<div [ngClass]="occupyRatio > 49 ? 'valid' : 'invalid'">
+  Current occupy procentage: {{occupyRatio}}%
+  <ng-container *ngIf="occupyRatio > 49 ;then  validText ;else invalidText"></ng-container>
+</div>
+
+<ng-template #validText>
+  <p>The Class will be held</p>
+</ng-template>
+
+<ng-template #invalidText>
+  <p>The Class will most likely be cancelled</p>
+</ng-template>
