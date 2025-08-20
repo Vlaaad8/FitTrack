@@ -6,11 +6,12 @@ import { NgIf } from '@angular/common';
 import { TrainingTableComponent } from "./training-table/training-table.component";
 import { NavbarComponent } from "../navbar/navbar.component";
 import {MatTableModule} from '@angular/material/table';
+import { AdminClassOcopyComponent } from "../admin/admin-class-ocopy/admin-class-ocopy.component";
 @Component({
   selector: 'app-participant',
   templateUrl: './participant.component.html',
   styleUrls: ['./participant.component.css'],
-  imports: [NgIf, TrainingTableComponent, NavbarComponent,MatTableModule]
+  imports: [NgIf, TrainingTableComponent, NavbarComponent, MatTableModule, AdminClassOcopyComponent]
 })
 export class ParticipantComponent implements OnInit{
 

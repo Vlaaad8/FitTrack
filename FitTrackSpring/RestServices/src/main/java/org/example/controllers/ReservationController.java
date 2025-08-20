@@ -35,4 +35,6 @@ public class ReservationController {
     public int getTrainerBookingCount(@RequestParam String trainerName) {
         return service.getTrainerBookingCount(trainerName);
     }
+
+
 }

@@ -5,6 +5,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ParticipantComponent } from './participant/participant.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { SubscriptionComponent } from './participant/subscription/subscription.component';
+import { AdminStatsComponent } from './admin/admin-stats/admin-stats.component';
 
 export const routes: Routes = [
     {path: '', component:LoginComponent, pathMatch:"full"},
@@ -12,5 +13,6 @@ export const routes: Routes = [
     {path: 'admin',component:AdminComponent},
     {path: 'participant',component:ParticipantComponent},
     {path: 'trainer', component:TrainerComponent},
-    {path: 'subscription',component:SubscriptionComponent}
+    {path: 'subscription',component:SubscriptionComponent},
+    {path: 'stats',component:AdminStatsComponent}
     ];

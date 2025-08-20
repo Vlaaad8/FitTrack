@@ -62,6 +62,9 @@ updateChart($event: any) {
   return  {
   type: 'pie',
   data: data,
+  options: {
+    maintainAspectRatio: false
+  }
 }
   }
   

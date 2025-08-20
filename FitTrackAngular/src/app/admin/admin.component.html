@@ -1,2 +1,17 @@
-<!-- <app-navbar [user]="user"></app-navbar> -->
-<app-class-stats></app-class-stats>
+<app-admin-navbar></app-admin-navbar>
+<div class="container">
+    <div class="leftPart">
+        <app-admin-training-table (modifyTraining)="handleModify($event)"></app-admin-training-table>
+    </div>
+    <div class="rightPart">
+        <div class="container">
+            <div class="rightPart">
+                <app-admin-add-form></app-admin-add-form>
+            </div>
+            <div class="leftPart">
+                <app-modify-training-form *ngIf="selectedTraining" [training]="selectedTraining"
+                    (modifyFinised)="handleFinishedModify($event)"></app-modify-training-form>
+            </div>
+        </div>
+    </div>
+</div>

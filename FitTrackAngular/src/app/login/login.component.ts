@@ -1,7 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ServiceService } from '../service/service.service';
-import { NgClass, NgIf } from '@angular/common';
+import { CommonModule, NgClass, NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { Subscription, User } from '../models/user';
 import { map, switchMap, tap } from 'rxjs';
@@ -10,7 +10,7 @@ import { map, switchMap, tap } from 'rxjs';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [ReactiveFormsModule, NgIf, NgClass]
+  imports: [ReactiveFormsModule, CommonModule, NgClass]
 })
 export class LoginComponent implements OnInit {
 

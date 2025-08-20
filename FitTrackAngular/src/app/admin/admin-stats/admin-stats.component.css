@@ -1,0 +1,12 @@
+.container{
+    display:flex;
+    margin-top: 5px;
+}
+.leftPart{
+    float:left;
+    width:50%;
+}
+.rightPart{
+    float:right;
+    width:50%;
+}

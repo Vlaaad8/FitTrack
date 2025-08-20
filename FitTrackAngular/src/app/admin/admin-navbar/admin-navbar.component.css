@@ -1,0 +1,42 @@
+span{
+    display: inline;
+    margin: 4px;
+    text-align: center;
+}
+mat-toolbar{
+    background-color :aquamarine;
+    height: 30px;
+}
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a90e2; 
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Lato', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+mat-toolbar span {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    border-radius: 5px;
+    text-align: center;
+}
+
+mat-toolbar span:hover {
+    background-color: #357ab8; 
+}
+
+mat-toolbar span{
+    font-weight: bold;
+    cursor: default;
+    background: none;
+    padding-left: 0;
+    text-align: center;
+}
+

@@ -5,6 +5,7 @@ import org.example.entities.Training;
 import org.example.mappers.TrainingMapper;
 import org.example.service.ServiceApplication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.service.annotation.DeleteExchange;
 
 import java.util.List;
 
@@ -40,4 +41,22 @@ public class TrainingController {
         return service.getTrainerCapacity(trainerName);
     }
 
+    @DeleteMapping("{id}")
+    public void deleteTraining(@PathVariable int id) {
+        service.removeTraining(id);
+    }
+
+    @PostMapping()
+    public TrainingDTO createTraining(@RequestBody Training training) {
+        return TrainingMapper.INSTANCE.trainingToTrainingDTO(service.saveTraining(training));
+    }
+
+    @GetMapping("{title}/capacity")
+    public int[] getTrainingCapacity(@PathVariable String title) {
+        return service.getClassSeats(title);
+    }
+    @GetMapping("titles")
+    public List<String> getTitles() {
+        return service.getTrainingTitles();
+    }
 }
